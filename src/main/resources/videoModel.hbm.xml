@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.AntonSibgatulin.Video">
+
+    <class name="VideoModel" table="video_table">
+
+
+        <meta attribute="class-description">
+            This class contains the VideoModel detail.
+        </meta>
+
+
+        <id name="video_id" type="java.lang.Long" column="video_id">
+
+        </id>
+        <property name="id" type="string" column="id"></property>
+        <property name="name" column="name" type="string"></property>
+        <property name="likes" column="likes" type="integer"></property>
+        <property name="unlikes" column="unlikes" type="integer"/>
+        <property name="comment" column="comment" type="string"/>
+        <property name="view" column="view" type="java.lang.Long"/>
+        <property name="files" column="files" type="string"/>
+        <property name="image" column="image" type="string"/>
+        <property name="chanel" column="chanel" type="string"></property>
+        <property name="idver" column="idver" type="string"></property>
+        <property name="ban" column="ban" type="java.lang.Integer"/>
+        <property name="duration" column="duration" type="string"/>
+        <property name="commentCount" column="commentCount" type="java.lang.Long"/>
+        <property name="timeofcreate" column="timeofcreate" type="java.lang.Long"/>
+        <property name="timeofpublic" column="timeofpublic" type="java.lang.Long"/>
+
+
+
+    </class>
+</hibernate-mapping>

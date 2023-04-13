@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>RuDogs</title>
+    <link rel="stylesheet" href="css/root.css"/>
+    <link rel="stylesheet" href="css/second.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css"/>
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <!--<script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+       <script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
+               <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+       <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+       -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/playerjs7.js?id=456234456"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/moment-duration-format.js"></script>
+    <script src="js/video.js"></script>
+    <script>
+        function logins() {
+
+            var aaaa = document.getElementById("login").value;
+            var bbbb = document.getElementById("password").value;
+
+            if (aaaa != "" && bbbb != "") {
+
+                // document.cookie="pass="+bbbb+"; "+age;
+
+                sendMessage("auth;" + aaaa + ";" + bbbb);
+            } 
+
+
+        }
+
+
+        /*
+        ! function(a) {
+        function f(a, b) {
+            if (!(a.originalEvent.touches.length > 1)) {
+                a.preventDefault();
+                var c = a.originalEvent.changedTouches[0],
+                    d = document.createEvent("MouseEvents");
+                d.initMouseEvent(b, !0, !0, window, 1, c.screenX, c.screenY, c.clientX, c.clientY, !1, !1, !1, !1, 0, null), a.target.dispatchEvent(d)
+            }
+        }
+        if (a.support.touch = "ontouchend" in document, a.support.touch) {
+            var e, b = a.ui.mouse.prototype,
+                c = b._mouseInit,
+                d = b._mouseDestroy;
+            b._touchStart = function(a) {
+                var b = this;
+                !e && b._mouseCapture(a.originalEvent.changedTouches[0]) && (e = !0, b._touchMoved = !1, f(a, "mouseover"), f(a, "mousemove"), f(a, "mousedown"))
+            }, b._touchMove = function(a) {
+                e && (this._touchMoved = !0, f(a, "mousemove"))
+            }, b._touchEnd = function(a) {
+                e && (f(a, "mouseup"), f(a, "mouseout"), this._touchMoved || f(a, "click"), e = !1)
+            }, b._mouseInit = function() {
+                var b = this;
+                b.element.bind({
+                    touchstart: a.proxy(b, "_touchStart"),
+                    touchmove: a.proxy(b, "_touchMove"),
+                    touchend: a.proxy(b, "_touchEnd")
+                }), c.call(b)
+            }, b._mouseDestroy = function() {
+                var b = this;
+                b.element.unbind({
+                    touchstart: a.proxy(b, "_touchStart"),
+                    touchmove: a.proxy(b, "_touchMove"),
+                    touchend: a.proxy(b, "_touchEnd")
+                }), d.call(b)
+            }
+        }
+        }(jQuery);
+        */
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <!--<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+       <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+       <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+       -->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" th:href="${mainCss}" href="css/index.css?id=1">
+    <!--===============================================================================================-->
+
+    <link rel="stylesheet" href="css/second.css"/>
+    <link rel="stylesheet" href="css/mobile-player.css"/>
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/tilt/tilt.jquery.min.js"></script>
+
+
+
+</head>
+<body>
+<div class="limiter" style="">
+    <th:block th:switch="${auth}">
+        <th:block th:case="${true}"></th:block>
+        <div class="container-login100" id="container" th:case="${false}">
+            <!-- <th:block th:case="${false}">
+               <div class="wrap-login100" id="wrap-login100">
+
+                   <div class="login100-pic js-tilt" data-tilt>
+                       <img src="images/system/img-01.png" alt="IMG">
+                   </div>
+
+
+                   <form class="login100-form validate-form">
+                       <span class="login100-form-title">
+                           Member Login </br>(#RUS)
+                       </span>
+
+                       <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                           <input class="input100" id="login" type="text" name="Login" placeholder="Login">
+                           <span class="focus-input100"></span>
+                           <span class="symbol-input100">
+                               <i class="fa fa-envelope" aria-hidden="true"></i>
+                           </span>
+                       </div>
+
+                       <div class="wrap-input100 validate-input" data-validate="Password is required">
+                           <input class="input100" id="password" type="password" name="pass" placeholder="Password">
+                           <span class="focus-input100"></span>
+                           <span class="symbol-input100">
+                               <i class="fa fa-lock" aria-hidden="true"></i>
+                           </span>
+                       </div>
+
+                       <div class="container-login100-form-btn">
+                           <div style="cursor: pointer;" onclick="logins()" class="login100-form-btn">
+                               Login
+                           </div>
+                       </div>
+
+                       <div class="text-center p-t-12">
+                           <span class="txt1">
+                               Forgot
+                           </span>
+                           <a class="txt2" href="#">
+                               Username / Password?
+                           </a>
+                       </div>
+
+                       <div class="text-center p-t-136">
+                           <a class="txt2" href="#">
+                               Create your Account
+                               <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                           </a>
+                       </div>
+                   </form>
+
+               </div>
+               </th:block>
+               -->
+        </div>
+    </th:block>
+</div>
+<!--===============================================================================================-->
+<!-- <script src="vendor/jquery/jquery-3.2.1.min.js"></script> -->
+<!--===============================================================================================-->
+<script>
+    $('.js-tilt').tilt({
+        scale: 1.1
+    })
+</script>
+<!--===============================================================================================-->
+<div id="videoPanel">
+    <span id="panel-status" style="display: block;">
+            <div class="up-line">
+               <a id="buttonMoney" class="logo-panel" style="" onclick="allNews()"><img
+                       src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2019/07/Pepsi_logo_emblem_logotype-2.png?auto=format&amp;q=60&amp;fit=max&amp;w=930"
+                       style="height: 100%;padding: 10px;"></a>
+               <span class="right-panel">
+                  <div class="me-panel-icon" onclick="turnOnSearchPanel()" style="
+                     margin-right: -16px;
+                     " href="/login" target="_blank">
+                     <a class="me-panel-icon-prepare" style="
+                        background-color: white;
+                        ">
+                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
+                             viewBox="0 0 24 24" width="24">
+                           <path
+                                   d="M20.87,20.17l-5.59-5.59C16.35,13.35,17,11.75,17,10c0-3.87-3.13-7-7-7s-7,3.13-7,7s3.13,7,7,7c1.75,0,3.35-0.65,4.58-1.71 l5.59,5.59L20.87,20.17z M10,16c-3.31,0-6-2.69-6-6s2.69-6,6-6s6,2.69,6,6S13.31,16,10,16z"></path>
+                        </svg>
+                         <!--<img src="https://cdn-icons-png.flaticon.com/512/3917/3917754.png" style="height: 75%;">-->
+                     </a>
+                  </div>
+                  <div class="me-panel-icon" style="" href="/login" target="_blank">
+                     <a class="me-panel-icon-prepare"><img src="images/icons/favicon.ico" style="height: 75%;"></a>
+                  </div>
+               </span>
+            </div>
+         </span>
+    <span id="panel-search" style="display: none;">
+            <div class="up-line">
+               <a id="back" class="back-panel" style="" onclick="backSearchPanel()">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                       enable-background="new 0 0 24 24"
+                       height="24" viewBox="0 0 24 24" width="24">
+                     <path
+                             d="M21,11v1H5.64l6.72,6.72l-0.71,0.71L3.72,11.5l7.92-7.92l0.71,0.71L5.64,11H21z"></path>
+                  </svg>
+               </a>
+               <span class="right-panel-search">
+                  <div class="input-search-a" style="">
+                     <input class="input-search" id="search_input" type="text" name="textmessage"
+                            placeholder="Search..." style=""
+                            autocomplete="off" autocorrect="off" spellcheck="false" role="combobox"
+                            aria-haspopup="false"
+                            aria-autocomplete="list" dir="ltr">
+                     <span class="search-panel-elements" id="search-panel-elements">
+                        <a class="icon-button " style="display: none;" onclick="clearSearch()"
+                           aria-label="Очистить поле поиска"
+                           aria-haspopup="false">
+                           <svg
+                                   xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
+                                   viewBox="0 0 24 24" width="24">
+                              <path
+                                      d="M12.71,12l8.15,8.15l-0.71,0.71L12,12.71l-8.15,8.15l-0.71-0.71L11.29,12L3.15,3.85l0.71-0.71L12,11.29l8.15-8.15l0.71,0.71 L12.71,12z"></path>
+                           </svg>
+                        </a>
+                        <a class="icon-button " aria-label="Поиск на " aria-haspopup="false"
+                           onclick="focusOnSearchInput()">
+                           <svg
+                                   xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
+                                   viewBox="0 0 24 24" width="24">
+                              <path
+                                      d="M20.87,20.17l-5.59-5.59C16.35,13.35,17,11.75,17,10c0-3.87-3.13-7-7-7s-7,3.13-7,7s3.13,7,7,7c1.75,0,3.35-0.65,4.58-1.71 l5.59,5.59L20.87,20.17z M10,16c-3.31,0-6-2.69-6-6s2.69-6,6-6s6,2.69,6,6S13.31,16,10,16z"></path>
+                           </svg>
+                        </a>
+                     </span>
+                  </div>
+                  <div class="me-panel-icon" style="
+                     " href="/login" target="_blank">
+                     <a class="voice-search-panel-icon-prepare" style="">
+                        <!--<img src="https://cdn-icons-png.flaticon.com/512/3917/3917754.png" style="width: 60%;height: 60%;">-->
+                        <svg
+                                xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                           <path
+                                   d="M12,3c-1.66,0-3,1.37-3,3.07v5.86c0,1.7,1.34,3.07,3,3.07s3-1.37,3-3.07V6.07C15,4.37,13.66,3,12,3L12,3z M18.5,12h-1 c0,3.03-2.47,5.5-5.5,5.5S6.5,15.03,6.5,12h-1c0,3.24,2.39,5.93,5.5,6.41V21h2v-2.59C16.11,17.93,18.5,15.24,18.5,12z"></path>
+                        </svg>
+                     </a>
+                  </div>
+               </span>
+            </div>
+         </span>
+    <div id="menugroupe" style="">
+
+    </div>
+    <div id="searchvideopanel" class="searchvideopanel" style="display:none">
+        <div id="carousel" class="carousel">
+            <button class="arrow prev">
+                <!--<img src="images/system/left.png">-->
+                <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"
+                     class="style-scope yt-icon"
+                     style="pointer-events: none; display: block; width: 100%; height: 100%;">
+                    <g mirror-in-rtl="" class="style-scope yt-icon">
+                        <path d="M14.6,18.4L8.3,12l6.4-6.4l0.7,0.7L9.7,12l5.6,5.6L14.6,18.4z"
+                              class="style-scope yt-icon"></path>
+                    </g>
+                </svg>
+            </button>
+            <div class="gallery">
+                <!--  <ytm-slim-video-action-bar-renderer>
+                  <ul class="images">
+                      <li><a class="button check click" onclick="all(this)">Всё</a></li>
+                      <li><a class="button check" onclick="checkButtonRun(this)">Мультфильмы</a></li>
+                      <li><a class="button check" onclick="checkButtonRun(this)">Музыка</a></li>
+                      <li><a class="button check" onclick="checkButtonRun(this)">Анимация</a></li>
+                      <li><a class="button check" onclick="checkButtonRun(this)">Фитнес</a></li>
+                      <li><a class="button check" onclick="checkButtonRun(this)">Видеоигры</a></li>
+                      <li><a class="button check" onclick="checkButtonRun(this)">Аниме</a></li>
+                      <li><a class="button check" onclick="checkButtonRun(this)">Наука и техника</a></li>
+                      <li><a class="button check" onclick="checkButtonRun(this)">Россия 24</a></li>
+                      <li><a class="button check" onclick="checkButtonRun(this)">Россия 1</a></li>
+                  </ul>
+                  </ytm-slim-video-action-bar-renderer>
+                  -->
+                <ytm-feed-filter-chip-bar-renderer class="chip-bar" style="background-color: #fff0;" id="filter-chip-bar">
+                    <div class="chip-bar-contents"  role="tablist" style="scroll-behavior: smooth;">
+                       <!-- <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_EXPLORE_LAUNCHER_CHIP"
+                                                      aria-selected="false">
+                            <div class="chip-container crispy-chips">
+                                <c3-icon>
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
+                                         height="24" viewBox="0 0 24 24" width="24">
+                                        <path d="M9.8,9.8l-3.83,8.23l8.23-3.83l3.83-8.23L9.8,9.8z M13.08,12.77c-0.21,0.29-0.51,0.48-0.86,0.54 c-0.07,0.01-0.15,0.02-0.22,0.02c-0.28,0-0.54-0.08-0.77-0.25c-0.29-0.21-0.48-0.51-0.54-0.86c-0.06-0.35,0.02-0.71,0.23-0.99 c0.21-0.29,0.51-0.48,0.86-0.54c0.35-0.06,0.7,0.02,0.99,0.23c0.29,0.21,0.48,0.51,0.54,0.86C13.37,12.13,13.29,12.48,13.08,12.77z M12,3c4.96,0,9,4.04,9,9s-4.04,9-9,9s-9-4.04-9-9S7.04,3,12,3 M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2 L12,2z"></path>
+                                    </svg>
+                                </c3-icon>
+                                <span class="typography-title-1 chip-text">Навигатор</span></div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <ytm-chip-divider-renderer></ytm-chip-divider-renderer>-->
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="true"
+                                                      class="selected all-chip-renderer">
+                            <div class="chip-container crispy-chips"><span
+                                    class="typography-title-1 chip-text" onclick="allNew(this)">Все</span></div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <!--<ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span
+                                    class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Джемы</span></div>
+                        </ytm-chip-cloud-chip-renderer>-->
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span
+                                    class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Музыка</span></div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Видеоигры</span>
+                            </div>
+                        </ytm-chip-cloud-chip-renderer>
+                       <!-- <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span class="typography-title-1 chip-text">Сейчас в эфире</span>
+                            </div>
+                        </ytm-chip-cloud-chip-renderer>-->
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Математика</span>
+                            </div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Скетч-шоу</span>
+                            </div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span
+                                    class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Анимация</span></div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span
+                                    class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Фитнес</span></div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Мультфильмы</span>
+                            </div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Экшен и приключения</span>
+                            </div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span
+                                    class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Футбол</span></div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Последние опубликованные видео</span>
+                            </div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <!--<ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_HOME_FILTER" aria-selected="false">
+                            <div class="chip-container crispy-chips"><span class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Просмотрено</span>
+                            </div>
+                        </ytm-chip-cloud-chip-renderer>
+                        <ytm-chip-cloud-chip-renderer role="tab" chip-style="STYLE_REFRESH_TO_NOVEL_CHIP"
+                                                      aria-selected="false">
+                            <div class="chip-container crispy-chips"><span class="typography-title-1 chip-text" onclick="checkButtonRun(this)">Новое для вас</span>
+                            </div>
+                        </ytm-chip-cloud-chip-renderer>-->
+                    </div>
+                </ytm-feed-filter-chip-bar-renderer>
+
+
+
+            </div>
+            <button class="arrow next">
+                <!--<img src="images/system/right.png">-->
+                <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"
+                     class="style-scope yt-icon"
+                     style="pointer-events: none; display: block; width: 100%; height: 100%;">
+                    <g mirror-in-rtl="" class="style-scope yt-icon">
+                        <path d="M9.4,18.4l-0.7-0.7l5.6-5.6L8.6,6.4l0.7-0.7l6.4,6.4L9.4,18.4z"
+                              class="style-scope yt-icon"></path>
+                    </g>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div id="videoview" style="display: none;">
+    </div>
+</div>
+<ytm-pivot-bar-renderer id="bottomPanel" role="tablist" class="">
+    <ytm-pivot-bar-item-renderer onclick="showVideo()" style="cursor: pointer;">
+        <div role="tab" aria-selected="true" class="pivot-bar-item-tab pivot-w2w">
+            <c3-icon icon-state-outline="">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
+                     viewBox="0 0 24 24" width="24">
+                    <path d="M12,4.44l7,6.09V20h-4v-5v-1h-1h-4H9v1v5H5v-9.47L12,4.44 M12,3.12l-8,6.96V21h6v-6h4v6h6V10.08L12,3.12L12,3.12z"></path>
+                </svg>
+            </c3-icon>
+            <c3-icon icon-state-filled="">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
+                     viewBox="0 0 24 24" width="24">
+                    <g>
+                        <path d="M4,21V10.08l8-6.96l8,6.96V21h-6v-6h-4v6H4z"></path>
+                    </g>
+                </svg>
+            </c3-icon>
+            <div class="pivot-bar-item-title">Главная</div>
+        </div>
+    </ytm-pivot-bar-item-renderer>
+    <th:block th:switch="${auth}">
+        <th:block th:case="${false}">
+            <ytm-pivot-bar-item-renderer onclick="window.location.href='/login'" style="cursor: pointer;">
+        </th:block>
+        <th:block th:case="${true}">
+            <ytm-pivot-bar-item-renderer onclick="showMessager()" style="cursor: pointer;">
+        </th:block>
+    </th:block>
+    <div role="tab" aria-selected="false" class="pivot-bar-item-tab pivot-shorts">
+        <c3-icon icon-state-outline="">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <path d="M10 14.65v-5.3L15 12l-5 2.65zm7.77-4.33c-.77-.32-1.2-.5-1.2-.5L18 9.06c1.84-.96 2.53-3.23 1.56-5.06s-3.24-2.53-5.07-1.56L6 6.94c-1.29.68-2.07 2.04-2 3.49.07 1.42.93 2.67 2.22 3.25.03.01 1.2.5 1.2.5L6 14.93c-1.83.97-2.53 3.24-1.56 5.07.97 1.83 3.24 2.53 5.07 1.56l8.5-4.5c1.29-.68 2.06-2.04 1.99-3.49-.07-1.42-.94-2.68-2.23-3.25zm-.23 5.86l-8.5 4.5c-1.34.71-3.01.2-3.72-1.14-.71-1.34-.2-3.01 1.14-3.72l2.04-1.08v-1.21l-.69-.28-1.11-.46c-.99-.41-1.65-1.35-1.7-2.41-.05-1.06.52-2.06 1.46-2.56l8.5-4.5c1.34-.71 3.01-.2 3.72 1.14.71 1.34.2 3.01-1.14 3.72L15.5 9.26v1.21l1.8.74c.99.41 1.65 1.35 1.7 2.41.05 1.06-.52 2.06-1.46 2.56z"></path>
+            </svg>
+        </c3-icon>
+        <c3-icon icon-state-filled="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M17.77 10.32c-.77-.32-1.2-.5-1.2-.5L18 9.06c1.84-.96 2.53-3.23 1.56-5.06s-3.24-2.53-5.07-1.56L6 6.94c-1.29.68-2.07 2.04-2 3.49.07 1.42.93 2.67 2.22 3.25.03.01 1.2.5 1.2.5L6 14.93c-1.83.97-2.53 3.24-1.56 5.07.97 1.83 3.24 2.53 5.07 1.56l8.5-4.5c1.29-.68 2.06-2.04 1.99-3.49-.07-1.42-.94-2.68-2.23-3.25zM10 14.65v-5.3L15 12l-5 2.65z"></path>
+            </svg>
+        </c3-icon>
+        <div class="pivot-bar-item-title">Messager</div>
+    </div>
+    </ytm-pivot-bar-item-renderer>
+    <ytm-pivot-bar-item-renderer>
+        <div role="tab" aria-selected="false" class="pivot-bar-item-tab pivot-subs">
+            <c3-icon icon-state-outline="">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
+                     viewBox="0 0 24 24" width="24">
+                    <path d="M10,18v-6l5,3L10,18z M17,3H7v1h10V3z M20,6H4v1h16V6z M22,9H2v12h20V9z M3,10h18v10H3V10z"></path>
+                </svg>
+            </c3-icon>
+            <c3-icon icon-state-filled="">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
+                     viewBox="0 0 24 24" width="24">
+                    <path d="M20,7H4V6h16V7z M22,9v12H2V9H22z M15,15l-5-3v6L15,15z M17,3H7v1h10V3z"></path>
+                </svg>
+            </c3-icon>
+            <div class="pivot-bar-item-title">Подписки</div>
+        </div>
+    </ytm-pivot-bar-item-renderer>
+    <ytm-pivot-bar-item-renderer>
+        <div role="tab" aria-selected="false" class="pivot-bar-item-tab pivot-library">
+            <c3-icon icon-state-outline="">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
+                     viewBox="0 0 24 24" width="24">
+                    <path d="M11,7l6,3.5L11,14V7L11,7z M18,20H4V6H3v15h15V20z M21,18H6V3h15V18z M7,17h13V4H7V17z"></path>
+                </svg>
+            </c3-icon>
+            <c3-icon icon-state-filled="">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24"
+                     viewBox="0 0 24 24" width="24">
+                    <path d="M4,20h14v1H3V6h1V20z M21,3v15H6V3H21z M17,10.5L11,7v7L17,10.5z"></path>
+                </svg>
+            </c3-icon>
+            <div class="pivot-bar-item-title">Библиотека</div>
+        </div>
+    </ytm-pivot-bar-item-renderer>
+</ytm-pivot-bar-renderer>
+
+
+<div id="chat" style="display: none;">
+
+    <div id="menuMessage" style="display:none;">
+    </div>
+    <!--chat_info-->
+    <div id="chat_info">
+        <button class="buttonmenus" id="menubut" onclick="hide()"> menu</button>
+        <div class="near-header-panel">
+            <div class="near-header-panel-element"><img src="images/bg.png" width="40" height="40"> <b
+                    id="name_contact"></b></div>
+        </div>
+    </div>
+    <!--chat_script-->
+    <div id="script_chat">
+        <div id="posts" style="display:none;">
+        </div>
+        <div id="chat_script">
+            <section id="sel_chat">
+            </section>
+        </div>
+    </div>
+    <!--text_in-->
+    <div id="text_in">
+        <!--<input type="text" id="text_input">-->
+        <div id="mailmes" class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            <input onfocus='var doc = document.getElementById("chat_script");doc.scrollTop = doc.scrollHeight;'
+                   class="input1001" id="message_input" type="text" name="textmessage" placeholder="Message...">
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+               <i class="fa fa-envelope" aria-hidden="true"></i>
+               </span>
+        </div>
+    </div>
+</div>
+<div id="purseinfo" style="display:none;" class="purseinfo">
+    <div id="myprofile" style="margin-left:6px;margin-top:6px;">
+        <img style="background: url(images/cube.png); border-radius: 50%; " width="40" height="40">
+        <a id="name">Anton</a> <b id="surname">Sibgatulin</b>
+        <center>
+            <div id="balancemoney" style="color:white;margin-left: auto;margin-right:auto;">$money</div>
+        </center>
+        <div id="panelpurse" style="display: flex;">
+            <div id="sell" class="pursebutt">Sell</div>
+            <div id="buy" class="pursebutt">Buy</div>
+            <div id="trans" onClick="translatefunc();" class="pursebutt">Translate</div>
+        </div>
+        <div class="pursebutt" style="width:calc(100% - 12px); margin-top: 6px;" id="give">Give</div>
+        <center>
+            <div id="translate_form" class="trans_form" style="display: none;">
+                <a style="color:white;">
+                    Translate</a><br/>
+                <a style="color:white;">Login for translate money....</a><br/>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" id="LoginToTrans" type="text" name="LoginTo"
+                           placeholder="Login for translate">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                     <i class="fa fa-envelope" aria-hidden="true"></i>
+                     </span>
+                </div>
+                <a style="color:white;">Amount for translate....</a><br/>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" id="NumToTrans" type="Number" name="LoginTo"
+                           placeholder="Amount for translate">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                     <i class="fa fa-envelope" aria-hidden="true"></i>
+                     </span>
+                </div>
+                <a style="margin-right:0px;">
+                    <button class="translate_button" id="mymoney" onClick="translatefun()">translate</button>
+                </a>
+            </div>
+        </center>
+    </div>
+</div>
+<script th:inline="javascript">
+    var ip = "[(${ip})]";
+    $("#purseinfo").slideUp(0);
+    //	document.getElementById("purseinfo").style="";
+
+</script>
+<script th:src="|${mainScript}|"></script>
+<script>
+    window.onload = async function () {
+        //window.onload();
+        pagePreviewInSearch = await loadPage("/templates/preview.html?id=" + Math.random());
+        pageVideoView = await loadPage("/templates/videoView.html?id=" + Math.random());
+        pageSpinner = await loadPage("/templates/spinner.html?id=" + Math.random());
+        pageUnderVideoPreview = await loadPage("/templates/underVideoPreview.html?id=" + Math.random());
+
+        init();
+        showVideo();
+        var message = {data: 'searchvideo;[(${videosJson})]'};
+        socket.onmessage(message)
+    }
+
+</script>
+</body>
+</html>

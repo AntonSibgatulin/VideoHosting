@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.AntonSibgatulin.searching">
+
+    <class name="SearchingModel" table="searching">
+
+
+        <meta attribute="class-description">
+            This class contains the SearchingModel detail.
+        </meta>
+
+
+        <id name="id" type="java.lang.Long" column="id"/>
+        <property name="header" column="header" type="string"/>
+        <property name="id_user" column="id_user" type="java.lang.Long"></property>
+
+
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!-- BLACK LIVE MATTER -->
+<html lang="en">
+<head>
+	<title>RuDogs</title>
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />
+<!--<script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+-->
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+        <script>
+        function aler(){
+	alert("second");
+        }
+
+            function logins(){
+
+        var aaaa = document.getElementById("login").value;
+        var bbbb = document.getElementById("password").value;
+
+if(aaaa!="" && bbbb!=""){
+
+	  // document.cookie="pass="+bbbb+"; "+age;
+
+        sendMessage("auth;"+aaaa+";"+bbbb);
+}
+
+//return false;
+    }
+
+
+    /*
+! function(a) {
+    function f(a, b) {
+        if (!(a.originalEvent.touches.length > 1)) {
+            a.preventDefault();
+            var c = a.originalEvent.changedTouches[0],
+                d = document.createEvent("MouseEvents");
+            d.initMouseEvent(b, !0, !0, window, 1, c.screenX, c.screenY, c.clientX, c.clientY, !1, !1, !1, !1, 0, null), a.target.dispatchEvent(d)
+        }
+    }
+    if (a.support.touch = "ontouchend" in document, a.support.touch) {
+        var e, b = a.ui.mouse.prototype,
+            c = b._mouseInit,
+            d = b._mouseDestroy;
+        b._touchStart = function(a) {
+            var b = this;
+            !e && b._mouseCapture(a.originalEvent.changedTouches[0]) && (e = !0, b._touchMoved = !1, f(a, "mouseover"), f(a, "mousemove"), f(a, "mousedown"))
+        }, b._touchMove = function(a) {
+            e && (this._touchMoved = !0, f(a, "mousemove"))
+        }, b._touchEnd = function(a) {
+            e && (f(a, "mouseup"), f(a, "mouseout"), this._touchMoved || f(a, "click"), e = !1)
+        }, b._mouseInit = function() {
+            var b = this;
+            b.element.bind({
+                touchstart: a.proxy(b, "_touchStart"),
+                touchmove: a.proxy(b, "_touchMove"),
+                touchend: a.proxy(b, "_touchEnd")
+            }), c.call(b)
+        }, b._mouseDestroy = function() {
+            var b = this;
+            b.element.unbind({
+                touchstart: a.proxy(b, "_touchStart"),
+                touchmove: a.proxy(b, "_touchMove"),
+                touchend: a.proxy(b, "_touchEnd")
+            }), d.call(b)
+        }
+    }
+}(jQuery);
+*/
+</script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<!--<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	-->
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css?id=1">
+<!--===============================================================================================-->
+
+
+<style>
+
+	</style>
+
+
+
+
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" id="container">
+			<div class="wrap-login100" id="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="images/system/img-01.png" alt="IMG">
+				</div>
+
+				<form class="login100-form validate-form">
+					<span class="login100-form-title">
+						Member Login </br>(#${rus})
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" id = "login" type="text" name="Login" placeholder="Login">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" id="password" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div  class="container-login100-form-btn" >
+						<div style="cursor: pointer;" onclick="logins()" class="login100-form-btn">
+							Login
+						</div>
+					</div>
+
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Forgot
+						</span>
+						<a class="txt2" href="#">
+							Username / Password?
+						</a>
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="#">
+							Create your Account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<!-- <script src="vendor/jquery/jquery-3.2.1.min.js"></script> -->
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+
+
+<div id="chat" style="display: none;">
+<div id="up-line">
+	<button class ="mymoney" id ="buttonMoney" onclick="getmypurse()">purse</button>
+	<button class="news" id="buttonVideosOrNews" onclick="videoOrmessager()">Videos</button>
+
+	<button class="find" id="find" onclick="find()"> search </button>
+
+
+
+
+</div>
+
+<!--menu-->
+<div id="menuMessage" style="display:none;">
+	
+</div>
+
+
+		<div id="menugroupe" style="display: none;">
+	
+		
+		</div>
+	<div id ="searchvideopanel" style="display:none">
+		<div id="mailmes1" class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+
+
+
+			<div id="menuOfSearch" onclick="menuOpenOrClose()">menu</div>
+
+
+			<input class="input1002" id = "search_input" type="text" name="textmessage" placeholder="Search..." style="padding-left: 25px;min-width: 140px;">
+						<span class="focus-input100"></span>
+							<div id="clearlenta" onclick="searchvideo()">search</div>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+		<div id="carousel" class="carousel">
+			<button class="arrow prev"><img src="images/system/left.png"></button>
+			<div class="gallery">
+				<ul class="images">
+					<li><a class="button check click">Всё</a></li>
+					<li><a class="button check">Мультфильмы</a></li>
+					<li><a class="button check">Музыка</a></li>
+					<li><a class="button check">Анимация</a></li>
+					<li><a class="button check">Фитнес</a></li>
+					<li><a class="button check">Видеоигры</a></li>
+					<li><a class="button check">Аниме</a></li>
+					<li><a class="button check">Наука и техника</a></li>
+					<li><a class="button check">Россия 24</a></li>
+					<li><a class="button check">Россия 1</a></li>
+				</ul>
+			</div>
+			<button class="arrow next"><img src="images/system/right.png"></button>
+		</div>
+		
+		</div>
+		<!--chat_info-->
+<div id="chat_info">
+	<button class="buttonmenus" id="menubut" onclick="hide()"> menu </button>
+
+
+	<div style="width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;">
+	<div style="position: relative;"><img style="background: url(images/cube.png); border-radius: 50%; " width="40" height="40"> <b id = "name_contact"></b></div>
+	</div>
+
+</div>
+<!--chat_script-->
+<div id="script_chat">
+	<div id ="posts" style="display:none;">
+
+
+	</div>
+<div id="chat_script">
+	<section id = "sel_chat">
+	</section>
+</div>
+</div>
+<!--text_in-->
+<div id="text_in">
+	<!--<input type="text" id="text_input">-->
+	<div id="mailmes" class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input   onfocus='var doc = document.getElementById("chat_script");doc.scrollTop = doc.scrollHeight;' class="input1001" id = "message_input" type="text" name="textmessage" placeholder="Message...">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+	<div id ="purseinfo" style ="display:none;" class="purseinfo">
+		<div id = "myprofile" style="margin-left:6px;margin-top:6px;">
+
+<img style="background: url(images/cube.png); border-radius: 50%; " width="40" height="40">
+<a id="name">Anton</a> <b id="surname">Sibgatulin</b>
+<center>
+<div id="balancemoney" style="color:white;margin-left: auto;margin-right:auto;">$money</div>
+</center>
+<div id="panelpurse" style="display: flex;">
+
+<div id="sell" class="pursebutt">Sell</div><div id="buy" class="pursebutt">Buy</div><div id="trans" onClick="translatefunc();" class="pursebutt">Translate</div>
+
+
+</div>
+
+<div class ="pursebutt" style="width:calc(100% - 12px); margin-top: 6px;" id ="give">Give</div>
+
+<center>
+<div id="translate_form" class ="trans_form" style="display: none;">
+	<a style="color:white;">
+	Translate</a><br/>
+	<a style="color:white;">Login for translate money....</a><br/>
+	<div class="wrap-input100 validate-input" >
+						<input class="input100" id = "LoginToTrans" type="text" name="LoginTo" placeholder="Login for translate">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+					<a style="color:white;">Amount  for translate....</a><br/>
+						<div class="wrap-input100 validate-input" >
+						<input class="input100" id = "NumToTrans" type="Number" name="LoginTo" placeholder="Amount for translate">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+					<a style="margin-right:0px;">
+						<button class ="translate_button" id ="mymoney" onClick="translatefun()">translate</button>
+					</a>
+</div>
+</center>
+
+		</div>
+	</div>
+	<script>
+		$("#purseinfo").slideUp(0);
+	//	document.getElementById("purseinfo").style="";
+
+	</script>
+	<script src="js/main.js?id=7"></script>
+</body>
+</html>

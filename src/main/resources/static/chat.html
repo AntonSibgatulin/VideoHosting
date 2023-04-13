@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<title></title>
+	<style>
+		html{
+	font-family: Arial;
+}
+#up-line{
+	background: #5d514a;
+	color: white;
+	height: 50px;
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+
+}
+#menu{
+	width: 30%;
+	height: 100%;
+	background: #6f6d6a;
+	position: fixed;
+	top: 50px;
+	left: 0px;
+}
+	#menuMessage button{
+		cursor: pointer;
+		background: #6f6b66;
+		padding: 15px;
+		border: none;
+		width: 100%;
+		color: white;
+		font-size: 16pt;
+	}
+	#menuMessage button:hover{
+		background: #3c3434;
+		color: black;
+	}
+/*
+	#menu div{
+		cursor: pointer;
+		background: #FFAA40;
+		padding: 15px;
+	}
+	#menu div:hover{
+		background: white;
+	}
+	#menu a{
+		text-decoration: none;
+		color: white;
+	}
+	#menu a:hover{
+		color: black;
+		background: white;
+	}
+*/
+#chat_info{
+	    background: linear-gradient(-135deg, #c5afc4, #726d64);
+	width: 70%;
+	height: 50px;
+	position: fixed;
+	top: 50px;
+	right: 0px;
+	z-index: 2;
+	border-left: 1px solid #425a77;
+	    border-bottom: 1px solid #6a665b;
+}
+#chat_script{
+    background: linear-gradient(-135deg, #c5afc4, #27330e);
+	width: 70%;
+	height: 100%;
+	position: fixed;
+	right: 0px;
+	top: 50px;
+	border-left: 1px solid #505447;
+}
+#text_in{
+	background: white;
+    position: fixed;
+    width: 70%;
+    height: 40px;
+    bottom: 1.25%;
+    right: 0px;
+}
+#text_input{
+width: 85%;
+	height: 115%;
+	    font-size: x-large;
+	border: none;
+}
+#send_button{
+    z-index: 3;
+    left: 89.85%;
+    position: fixed;
+width: 10.19%;
+    height: 6%;
+}
+	</style>
+</head>
+<body>
+<!--up-line-->
+<div id="chat">
+<div id="up-line"></div>
+<!--menu-->
+<div id="menuMessage">
+	<button>@Admin</button>
+	<button>@An</button>
+	
+</div>
+<!--chat_info-->
+<div id="chat_info">
+	
+	<div style="position: relative; top: 5px; left: 40%"><img style="background: url(images/cube.png); border-radius: 50%; " width="40" height="40"> <b>Контакт<b></div>
+
+
+</div>
+<!--chat_script-->
+<div id="chat_script"></div>
+<!--text_in-->
+<div id="text_in">
+	<input type="text" id="text_input">
+	<button id="send_button">Отправить</button>
+</div>
+</div>
+</body>
+</html>

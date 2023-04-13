@@ -1,0 +1,63 @@
+<ytm-rich-item-renderer class="">
+    <ytm-video-with-context-renderer>
+        <ytm-media-item class="" use-vertical-layout="true"><a onclick="showVideoView($id)" class="media-item-thumbnail-container" aria-hidden="true"
+                                                               href1="/watch?v=$id">
+            <div class="video-thumbnail-container-large center rounded-thumbnail">
+                <div class="cover video-thumbnail-img video-thumbnail-bg"></div>
+                <img alt="" class="cover video-thumbnail-img"
+                     loading="lazy" src="$img">
+                <div class="video-thumbnail-overlay-bottom-left-right-group">
+                    <div class="video-thumbnail-overlay-left-right-group">
+                        <ytm-thumbnail-overlay-time-status-renderer class=" rounded-container" data-style="DEFAULT">
+                            <span class="icon-text">VideoDuration</span></ytm-thumbnail-overlay-time-status-renderer>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="details">
+                <div class="media-channel">
+                    <ytm-channel-thumbnail-with-link-renderer><a href1="/c/avtoinstruktor_62">
+                        <ytm-profile-icon class="channel-thumbnail-icon" aria-hidden="false"
+                                          aria-label="Перейти на канал"><img  alt=""
+                                                                             src="https://yt3.ggpht.com/ytc/AMLnZu_2sL9VFT0i4cc4p6B6yfDE8zy8N_LqX9oYAZGAjA=s68-c-k-c0x00ffffff-no-rj">
+                        </ytm-profile-icon>
+                    </a></ytm-channel-thumbnail-with-link-renderer>
+                    <a class="media-item-extra-endpoint" aria-hidden="true" onclick="showVideoView($id)" href1="/watch?v=$id"></a></div>
+                <div class="media-item-info cbox" no-channel-avatar="false">
+                    <div class="media-item-metadata"><a href1="/watch?v=IMflq51Y73k"><h3 class="media-item-headline">
+                        $name</h3>
+                        <div class="" aria-hidden="true">
+                            <ytm-badge-and-byline-renderer class="" data-is-all-badges=""><span
+                                    class="ytm-badge-and-byline-item-byline small-text" dir="auto" aria-hidden="true">@titlechanel</span><span
+                                    class="ytm-badge-and-byline-separator" aria-hidden="true">•</span><span
+                                    class="ytm-badge-and-byline-item-byline small-text" dir="auto" aria-hidden="true">CountOfView</span><span
+                                    class="ytm-badge-and-byline-separator" aria-hidden="true">•</span><span
+                                    class="ytm-badge-and-byline-item-byline small-text" dir="auto" aria-hidden="true">Time</span>
+                            </ytm-badge-and-byline-renderer>
+                        </div>
+                    </a></div>
+                    <ytm-bottom-sheet-renderer class="media-item-menu">
+                        <button class="yt-spec-button-shape-next yt-spec-button-shape-next--text yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-l yt-spec-button-shape-next--icon-button "
+                                aria-label="Меню действий" style="">
+                            <div class="yt-spec-button-shape-next__icon" aria-hidden="true">
+                                <c3-icon>
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
+                                         height="24" viewBox="0 0 24 24" width="24">
+                                        <path d="M12,16.5c0.83,0,1.5,0.67,1.5,1.5s-0.67,1.5-1.5,1.5s-1.5-0.67-1.5-1.5S11.17,16.5,12,16.5z M10.5,12 c0,0.83,0.67,1.5,1.5,1.5s1.5-0.67,1.5-1.5s-0.67-1.5-1.5-1.5S10.5,11.17,10.5,12z M10.5,6c0,0.83,0.67,1.5,1.5,1.5 s1.5-0.67,1.5-1.5S12.83,4.5,12,4.5S10.5,5.17,10.5,6z"></path>
+                                    </svg>
+                                </c3-icon>
+                            </div>
+                            <yt-touch-feedback-shape style="border-radius: inherit;">
+                                <div class="yt-spec-touch-feedback-shape yt-spec-touch-feedback-shape--touch-response"
+                                     aria-hidden="true">
+                                    <div class="yt-spec-touch-feedback-shape__stroke" style=""></div>
+                                    <div class="yt-spec-touch-feedback-shape__fill" style=""></div>
+                                </div>
+                            </yt-touch-feedback-shape>
+                        </button>
+                    </ytm-bottom-sheet-renderer>
+                </div>
+            </div>
+        </ytm-media-item>
+    </ytm-video-with-context-renderer>
+</ytm-rich-item-renderer>

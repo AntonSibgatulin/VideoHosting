@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.AntonSibgatulin.searching">
+
+    <class name="GetSearchedVideoModel" table="viewed">
+
+
+        <meta attribute="class-description">
+            This class contains the GetSearchedVideoModel detail.
+        </meta>
+
+
+        <id name="id" type="java.lang.Long" column="id"/>
+        <property name="user_id" column="user_id" type="java.lang.Long"/>
+        <property name="video_id" column="video_id" type="java.lang.Long"/>
+        <property name="date" column="date" type="java.lang.Long"/>
+
+
+    </class>
+</hibernate-mapping>

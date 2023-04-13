@@ -1,0 +1,63 @@
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+-->
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js">   </script>
+
+<br><br>
+<label>encrypted</label>
+<div id="demo1"></div>
+<br>
+
+<label>decrypted</label>
+<div id="demo2"></div>
+
+<br>
+<label>Actual Message</label>
+<div id="demo3"></div>
+
+<script>
+/*
+var encrypted = CryptoJS.AES.encrypt("Hello", "pass");
+U2FsdGVkX18ZUVvShFSES21qHsQEqZXMxQ9zgHy+bu0=
+
+var decrypted = CryptoJS.AES.decrypt("oSgRVsJPh20Rqj4xBXiGwA==", "ssshhhhhhhhhhh!!!!");
+4d657373616765
+
+
+document.getElementById("demo1").innerHTML = encrypted;
+document.getElementById("demo2").innerHTML = decrypted;
+document.getElementById("demo3").innerHTML = decrypted.toString(CryptoJS.enc.Utf8);
+*/
+var iterationCount = 1000;
+var keySize = 128;
+var encryptionKey  ="5db2c4d1e63d934e";
+var dataToDecrypt = "c9347d83ba78d875297575d15a4ff3d2f15ae40dd063298b937a9fefd121d0e5" //The base64 encoded string output from Java;
+var iv = "2dd9cffc51838d46"
+var salt = "2dd9cffc51838d46"
+
+var aesUtil = new AesUtil(keySize, iterationCount);
+var plaintext =  aesUtil.decrypt(salt, iv, encryptionKey, dataToDecrypt);
+console.log(plaintext);
+
+
+var AesUtil = function(keySize, iterationCount) {
+ this.keySize = keySize / 32;
+ this.iterationCount = iterationCount;
+};
+
+AesUtil.prototype.generateKey = function(salt, passPhrase) {
+  var key = CryptoJS.PBKDF2(passPhrase, CryptoJS.enc.Hex.parse(salt),
+  { keySize: this.keySize, iterations: this.iterationCount });
+  return key;
+}
+
+AesUtil.prototype.decrypt = function(salt, iv, passPhrase, cipherText) {
+  var key = this.generateKey(salt, passPhrase);
+  var cipherParams = CryptoJS.lib.CipherParams.create({
+    ciphertext: CryptoJS.enc.Base64.parse(cipherText)
+  });
+  var decrypted = CryptoJS.AES.decrypt(cipherParams,key,
+  { iv: CryptoJS.enc.Hex.parse(iv) });
+  return decrypted.toString(CryptoJS.enc.Utf8);
+ }
+
+</script>
